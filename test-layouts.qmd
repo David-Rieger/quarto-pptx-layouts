@@ -1,0 +1,216 @@
+---
+title: "Pandoc Layouts Test"
+subtitle: "Testing all 7 PowerPoint Slide Layouts"
+author: "Antigravity & David"
+date: today
+date-format: long
+format:
+  pptx:
+    reference-doc: test.pptx
+    slide-level: 2
+filters:
+  - size_tags.lua
+---
+
+# Section Header Layout
+
+This is a Level 1 header (`#`), which is above the slide-level of 2 (`##`). Pandoc uses the **Section Header** layout for this slide.
+
+## Title and Content Layout
+
+This slide triggers the **Title and Content** layout. It is a standard slide containing only text and lists, and does not match the criteria for any other layout.
+
+- Standard slide title (`##`)
+- Standard bullet points:
+  - Bullet point A
+  - Bullet point B
+  - Bullet point C
+
+## Two Content Layout
+
+This slide triggers the **Two Content** layout. It has two columns, and neither column contains text followed by non-text.
+
+::: {.columns}
+::: {.column}
+### Left Column
+
+This is the left column containing only text.
+
+- Bullet 1
+- Bullet 2
+:::
+
+::: {.column}
+### Right Column
+
+This is the right column also containing only text.
+
+- Bullet 3
+- Bullet 4
+:::
+:::
+
+## Comparison Layout
+
+This slide triggers the **Comparison** layout. It is a two-column slide where the left column contains text followed by an image (non-text).
+
+::: {.columns}
+::: {.column}
+Here is some text in the left column.
+
+![](test_image.png)
+:::
+
+::: {.column}
+Here is the right column content.
+
+- Bullet A
+- Bullet B
+:::
+:::
+
+## Content with Caption Layout
+
+This slide triggers the **Content with Caption** layout because it is a single-column slide containing text followed by an image.
+
+Here is the caption text explaining the image below:
+
+![](test_image.png)
+
+## 
+
+::: {.notes}
+This slide has no title and only contains speaker notes. This triggers the **Blank** layout since there is no visible slide content.
+:::
+
+## 
+
+\ 
+<!-- The slide above has no title and only contains a non-breaking space, which also triggers the **Blank** layout. -->
+
+# Section Header mit minimalem Text
+
+Ein einzelner kurzer Satz unter der Überschrift.
+
+# Section Header ohne Text
+
+## Minimal Two Content (mit kurzem Satz oben)
+
+Ein kurzer Satz oben auf dieser Folie.
+
+::: {.columns}
+::: {.column}
+Text links.
+:::
+
+::: {.column}
+Text rechts.
+:::
+:::
+
+## Minimal Two Content (ohne Satz oben)
+
+::: {.columns}
+::: {.column}
+Nur Text links.
+:::
+
+::: {.column}
+Nur Text rechts.
+:::
+:::
+
+## Minimal Comparison (mit kurzem Satz oben)
+
+Ein kurzer Satz oben auf dieser Folie.
+
+::: {.columns}
+::: {.column}
+Text links.
+
+![](test_image.png)
+:::
+
+::: {.column}
+Text rechts.
+:::
+:::
+
+## Minimal Comparison (ohne Satz oben)
+
+::: {.columns}
+::: {.column}
+Text links.
+
+![](test_image.png)
+:::
+
+::: {.column}
+Text rechts.
+:::
+:::
+
+# Script Test: Section Header Small
+
+::: {.notes}
+[layout: Section Header Small]
+:::
+
+## Script Test: Title and Content Normal
+
+This is a normal slide with standard font sizes.
+
+- Point 1
+- Point 2
+
+## Script Test: Title and Content Small
+
+This slide should have smaller font sizes, mapped by the python script.
+
+- Point 1
+- Point 2
+
+::: {.notes}
+[layout: Title and Content Small]
+:::
+
+## Script Test: Two Content Normal
+
+::: {.columns}
+::: {.column}
+Normal Text Left
+:::
+::: {.column}
+Normal Text Right
+:::
+:::
+
+## Script Test: Two Content Small
+
+::: {.columns}
+::: {.column}
+Smaller Text Left
+:::
+::: {.column}
+Smaller Text Right
+:::
+:::
+
+::: {.notes}
+[layout: Two Content Small]
+:::
+
+## Lua Filter Test: Normal Size
+
+Dieser Text ist in der ganz normalen Standardgröße.
+Wir verwenden keine speziellen Klassen.
+
+## Lua Filter Test: Smaller {.smaller}
+
+Diese Folie hat das Suffix `{.smaller}` in der Überschrift.
+Der Lua-Filter sollte dies erkennen und das Layout auf die `-6pt` Variante verkleinern.
+
+## Lua Filter Test: Smallest {.smallest}
+
+Diese Folie nutzt die `{.smallest}` Klasse.
+Sie sollte automatisch das `-12pt` Layout erhalten! Das ist extrem simpel in der Anwendung.
