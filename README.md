@@ -44,7 +44,7 @@ filters:
   
 project:
   post-render:
-    - python _extensions/David-Rieger/quarto-pptx-layouts/apply-layouts.py
+    - python _extensions/quarto-pptx-layouts/apply-layouts.py
 ```
 
 ## Creating Your PPTX Template
@@ -98,5 +98,5 @@ You can test it by running:
 ```bash
 cd example
 quarto render example.qmd --to pptx
-python ../apply-layouts.py example.pptx
+python ../_extensions/quarto-pptx-layouts/apply-layouts.py example.pptx
 ```

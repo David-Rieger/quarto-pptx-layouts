@@ -8,7 +8,7 @@ format:
     reference-doc: template.pptx
     slide-level: 2
 filters:
-  - ../size_tags.lua
+  - ../_extensions/quarto-pptx-layouts/size_tags.lua
 ---
 
 # 1. Section Header (Normal)
