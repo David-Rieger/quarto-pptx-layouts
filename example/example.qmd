@@ -1,0 +1,174 @@
+---
+title: "Quarto PPTX Layouts: Extension Example"
+subtitle: "Showcasing dynamic layout sizing with .smaller and .smallest"
+author: "David Rieger"
+date: today
+format:
+  pptx:
+    reference-doc: template.pptx
+    slide-level: 2
+filters:
+  - ../size_tags.lua
+---
+
+# 1. Section Header (Normal)
+
+This is a Level 1 header (`#`), triggering the **Section Header** layout.
+
+# 1. Section Header Smaller {.smaller}
+
+This is the same layout, but smallest font sizes.
+
+# 1. Section Header Smallest {.smallest}
+
+This is the same layout, but with the smallerest font sizes.
+
+
+## 2. Title and Content (Normal)
+
+This is a standard slide (`##`), triggering the **Title and Content** layout.
+Everything is at normal size.
+
+- Point A
+- Point B
+- Point C
+
+## 2. Title and Content Smaller {.smaller}
+
+This is the `.smaller` variant.
+
+- Point A
+- Point B
+- Point C
+
+## 2. Title and Content Smallest {.smallest}
+
+This is the `.smallest` variant.
+
+- Point A
+- Point B
+- Point C
+
+
+## 3. Two Content (Normal)
+
+This slide triggers the **Two Content** layout.
+
+::: {.columns}
+::: {.column}
+### Left Column
+Normal text on the left.
+:::
+::: {.column}
+### Right Column
+Normal text on the right.
+:::
+:::
+
+## 3. Two Content Smaller {.smaller}
+
+::: {.columns}
+::: {.column}
+### Left Column
+Smaller text on the left.
+:::
+::: {.column}
+### Right Column
+Smaller text on the right.
+:::
+:::
+
+## 3. Two Content Smallest {.smallest}
+
+::: {.columns}
+::: {.column}
+### Left Column
+Smallest text on the left.
+:::
+::: {.column}
+### Right Column
+Smallest text on the right.
+:::
+:::
+
+
+## 4. Comparison (Normal)
+
+This slide triggers the **Comparison** layout because it contains an image.
+
+::: {.columns}
+::: {.column}
+Normal text left.
+
+![](test_image.png)
+:::
+::: {.column}
+Normal text right.
+:::
+:::
+
+## 4. Comparison Smaller {.smaller}
+
+::: {.columns}
+::: {.column}
+Smaller text left.
+
+![](test_image.png)
+:::
+::: {.column}
+Smaller text right.
+:::
+:::
+
+## 4. Comparison Smallest {.smallest}
+
+::: {.columns}
+::: {.column}
+Smallest text left.
+
+![](test_image.png)
+:::
+::: {.column}
+Smallest text right.
+:::
+:::
+
+
+## 5. Content with Caption (Normal)
+
+This slide triggers **Content with Caption** (single column, text + image).
+
+Normal caption text.
+
+![](test_image.png)
+
+## 5. Content with Caption Smaller {.smaller}
+
+Smaller caption text.
+
+![](test_image.png)
+
+## 5. Content with Caption Smallest {.smallest}
+
+Smallest caption text.
+
+![](test_image.png)
+
+
+## 6. Blank (Normal)
+
+::: {.notes}
+Blank layout triggers when there is no visible content on the slide.
+:::
+
+## 6. Blank Smaller {.smaller}
+
+::: {.notes}
+Blank layout (smaller).
+:::
+
+## 6. Blank Smallest {.smallest}
+
+::: {.notes}
+Blank layout (smallest).
+:::
