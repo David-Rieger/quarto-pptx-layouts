@@ -78,6 +78,19 @@ def process_presentation(ppt_path):
                     modified = True
                 else:
                     print(f"Slide {i+1}: Warning - Layout '{target_layout_name}' not found!")
+                    
+            # Cleanup any empty text placeholders that PowerPoint might have restored 
+            # when switching to the new custom layout.
+            if modified:
+                shapes_to_delete = []
+                for shp in slide.Shapes:
+                    if shp.Type == 14: # msoPlaceholder
+                        if shp.HasTextFrame:
+                            # A placeholder with no text or just whitespace should be deleted
+                            if not shp.TextFrame.TextRange.Text.strip():
+                                shapes_to_delete.append(shp)
+                for shp in shapes_to_delete:
+                    shp.Delete()
         
         if modified:
             presentation.Save()

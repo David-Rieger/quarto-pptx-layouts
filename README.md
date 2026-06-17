@@ -77,6 +77,9 @@ If you already have a complex custom template and want to add this functionality
 
 Simply append the `{.smaller}` or `{.smallest}` class to the header of the slide you want to resize. Pandoc will still infer the base layout, and our script will swap it to the sized variant.
 
+> [!NOTE]
+> This extension is logically designed for the 5 standard layouts that display body content. It is not intended for the **Title Slide** (which is generated directly from YAML metadata, not Markdown headers) or the **Blank** layout (which by definition contains no text to resize).
+
 ```markdown
 ## Standard Slide
 

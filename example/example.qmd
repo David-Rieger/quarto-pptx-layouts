@@ -13,15 +13,9 @@ filters:
 
 # 1. Section Header (Normal)
 
-This is a Level 1 header (`#`), triggering the **Section Header** layout.
-
 # 1. Section Header Smaller {.smaller}
 
-This is the same layout, but smallest font sizes.
-
 # 1. Section Header Smallest {.smallest}
-
-This is the same layout, but with the smallerest font sizes.
 
 
 ## 2. Title and Content (Normal)
@@ -51,8 +45,6 @@ This is the `.smallest` variant.
 
 
 ## 3. Two Content (Normal)
-
-This slide triggers the **Two Content** layout.
 
 ::: {.columns}
 ::: {.column}
@@ -93,8 +85,6 @@ Smallest text on the right.
 
 
 ## 4. Comparison (Normal)
-
-This slide triggers the **Comparison** layout because it contains an image.
 
 ::: {.columns}
 ::: {.column}
@@ -153,22 +143,3 @@ Smaller caption text.
 Smallest caption text.
 
 ![](test_image.png)
-
-
-## 6. Blank (Normal)
-
-::: {.notes}
-Blank layout triggers when there is no visible content on the slide.
-:::
-
-## 6. Blank Smaller {.smaller}
-
-::: {.notes}
-Blank layout (smaller).
-:::
-
-## 6. Blank Smallest {.smallest}
-
-::: {.notes}
-Blank layout (smallest).
-:::
