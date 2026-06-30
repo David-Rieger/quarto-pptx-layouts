@@ -1,9 +1,19 @@
-import win32com.client
 import os
 import re
 import sys
 
 def process_presentation(ppt_path):
+    if sys.platform != "win32":
+        print("Quarto PPTX Layouts: Layout adjustment is currently only supported on Windows.")
+        return
+        
+    try:
+        import win32com.client
+    except ImportError:
+        print("Quarto PPTX Layouts: Missing required package 'pywin32'.")
+        print("Please install it (e.g., using 'uv pip install pywin32' or 'pip install pywin32').")
+        return
+
     abs_path = os.path.abspath(ppt_path)
     if not os.path.exists(abs_path):
         print(f"Error: File not found '{abs_path}'")
