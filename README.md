@@ -25,23 +25,10 @@ This extension solves this limitation by introducing a two-step pipeline:
 1. **A Lua Filter (`size_tags.lua`)**: Intercepts slides that have the `{.smaller}` or `{.smallest}` classes applied to their header and injects a hidden tag into the slide's speaker notes.
 2. **A Post-Render Script (`apply-layouts.py`)**: Automatically scans the generated `.pptx` file, reads the hidden tags in the notes, changes the slide to the corresponding smaller/smallest custom layout, and removes the hidden tag so your notes stay clean.
 
-## Prerequisites & Limitations
+## Prerequisites
 
-> [!WARNING]
-> **Windows Only**: This extension uses PowerPoint COM automation to natively modify the PPTX file. As such, the dynamic layout script will currently **only work on Windows**. On other platforms (like macOS or Linux), the slides will still be generated, but the custom layouts will not be applied.
-
-To use this extension, you must have:
-1. **Python** installed on your system.
-2. The **`pywin32`** Python package installed (required for PowerPoint automation).
-
-You can install the required package using `pip` or `uv`:
-```bash
-# Using standard pip
-pip install pywin32
-
-# Or using uv
-uv pip install pywin32
-```
+To use this extension, you only need a standard **Python** installation on your system. 
+Because this extension modifies the PowerPoint XML files directly, it is **100% cross-platform** and works seamlessly on Windows, macOS, and Linux without any third-party dependencies!
 
 ## Installation & Setup
 
